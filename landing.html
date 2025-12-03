@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    padding: 20px 60px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+header nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #0d6efd;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: #e9f4ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 60px;
+}
+
+.hero .content {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    background: #0d6efd;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0954c6;
+}
+
+.hero img {
+    width: 350px;
+}
+
+/* FEATURES SECTION */
+.features {
+    padding: 80px 60px;
+    background: #ffffff;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    background: #f3f7ff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 32%;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: #e0ebff;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+/* ABOUT SECTION */
+.about {
+    padding: 80px 60px;
+    background: #e9f4ff;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* CONTACT SECTION */
+.contact {
+    padding: 80px 60px;
+    background: #ffffff;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background: #0d6efd;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0954c6;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0d6efd;
+    color: white;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 140px 20px;
+    }
+    .hero img {
+        margin-top: 20px;
+    }
+    .cards {
+        flex-direction: column;
+    }
+    .card {
+        width: 100%;
+    }
+}</style>
+</head>
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <div class="logo">MyBrand</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="content">
+            <h1>Build Your Future With Us</h1>
+            <p>We help you grow, innovate, and achieve your goals with modern digital solutions.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+        <img src="question mark.png" alt="Illustration">
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Fast Performance</h3>
+                <p>Experience lightning-fast loading and smooth interactions.</p>
+            </div>
+
+            <div class="card">
+                <h3>Responsive Design</h3>
+                <p>Looks perfect on all devices — mobile, tablet & desktop.</p>
+            </div>
+
+            <div class="card">
+                <h3>Easy Customization</h3>
+                <p>Modify any section easily to match your brand and style.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>
+            We are a modern web development team focused on creating clean, responsive
+            and high-performing websites. Our mission is to provide innovative solutions 
+            that help individuals and businesses thrive in the digital world.
+        </p>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+
+        <form>
+            <input type="text" placeholder="Enter Your Name" required>
+            <input type="email" placeholder="Enter Email Address" required>
+            <textarea placeholder="Enter Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 MyBrand. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
