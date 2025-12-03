@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Quiz App</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: beige;
+      padding: 20px;
+    }
+    .quiz-box {
+      background-color: white;
+      padding: 20px;
+    }
+     h2 {
+      text-align: center;
+    }
+    .question {
+      font-weight: bold;
+       }
+    .options {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color:blue;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color:black;
+    }
+    #result {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-box">
+    <h2>Simple Quiz</h2>
+
+    <div id="quiz">
+      <div class="question" id="question"></div>
+      <div class="options">
+        <input type="radio" name="option" value="0"> <span id="opt1"></span><br>
+        <input type="radio" name="option" value="1"> <span id="opt2"></span><br>
+        <input type="radio" name="option" value="2"> <span id="opt3"></span><br>
+        <input type="radio" name="option" value="3"> <span id="opt4"></span><br>
+      </div>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "1. Which company developed the python programming languages?",
+        options: ["Python software foundation", "Google", "Microsoft", "Apple"],
+        answer: 0
+      },
+      {
+        question: "2. What is the full form of SQL?",
+        options: ["Structured question languauge", "Structured query language", "System query logic", "Simple query list"],
+        answer: 1
+      },
+      {
+        question: "3. In binary,what is the value of(1010)?",
+        options: ["5", "10", "8", "12"],
+        answer: 1
+      },
+      {
+        question: "4. Which of the following is an example of an operating system?",
+        options: ["Chrome", "Windows", "Google", "C++"],
+        answer: 1
+      },
+      {
+        question: "5. which symbol is used for comments in javascript?",
+        options: ["//", "#", "*", "/#/"],
+        answer: 0
+      },
+      {
+        question: "6. Which data structure uses FIFO?",
+        options: ["Queue", "Stack", "Tree", "Graph"],
+        answer: 0
+      },
+      {
+        question: "7. Which of the following is a backend programming language?",
+        options: ["HTML", "Java", "CSS", "Bootstrap"],
+        answer: 1
+      },
+      {
+        question: "8. Which part of the computer performs all arithmetic and logical operations?",
+        options: ["Control unit", "Input unit", "Arithmetic lodic unit", "Memory unit"],
+        answer: 2
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const q = questions[current];
+      document.getElementById("question").innerText = q.question;
+      document.getElementById("opt1").innerText = q.options[0];
+      document.getElementById("opt2").innerText = q.options[1];
+      document.getElementById("opt3").innerText = q.options[2];
+      document.getElementById("opt4").innerText = q.options[3];
+    }
+
+    function nextQuestion() {
+      const selected = document.querySelector('input[name="option"]:checked');
+      if (!selected) {
+        alert("Please select an option!");
+        return;
+      }
+
+      if (parseInt(selected.value) === questions[current].answer) {
+        score++;
+      }
+
+      selected.checked = false;
+      current++;
+
+      if (current < questions.length) {
+        loadQuestion();
+      } else {
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("result").innerText = 
+          "Your Score: " + score + " / " + questions.length;
+      }
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>

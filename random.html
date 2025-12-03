@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RANDOM PASSWORD GENERATOR</title>
+        <style>
+            body{
+                font-family: arial;
+                background-color: grey;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100;
+            }
+            .prime {
+                background-color: aliceblue;
+                padding: 50px 50px;
+                border: 10px;
+                text-align: center;
+
+            }
+            button {
+                padding: 10px 10px;
+                font-size: medium;
+                color: white;
+                background-color: black;
+            }
+            button:hover{
+                background-color: blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="prime">
+        <h1>RANDOM PASSWORD GENERATOR</h1>
+        <label>ENTER THE LENGTH OF THE PASSWORD:</label>
+        <input type="number" id="len" min="4" max="20" value="6"><br><br>
+        <button onclick="password()">new password</button><br><br>
+        <input type="text" id="password" readonly>
+        </div>
+        <script>
+            function password(){
+                let length = document.getElementById("len").value;
+                let characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*?";
+                let word="";
+                for(let i=0;i<length;i++){
+                    let randompassword=Math.floor(Math.random()*characters.length);
+                    word+=characters[randompassword];
+
+                }
+                document.getElementById("password").value=word;
+
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>number guessing</title>
+        <style>
+            body{
+                font-family: arial;
+                background-color: chartreuse;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: fit-content;
+            }
+            .number{
+                background-color: blue;
+                padding: 50px 50px;
+                text-align: center;
+            }
+            button{
+                padding: 10px 20px;
+                font-size: medium;
+                background-color: beige;
+                color: brown;
+            }
+            button:hover{
+                background-color: blueviolet;
+            }
+            p{
+                font-size: medium;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="number">
+            <h1>GUESS A NUMBER</h1>
+            <p>Guess a number between 1 and 50</p>
+            <input type="number" id="crct" min="1" max="50" value="20"><br><br>
+            <br><button onclick="guessing()">Check your guess</button>
+            <p id="message"></p>
+            <p id="Remainingattempts"></p>
+        </div>
+        <script>
+            let correctNumber = Math.floor(Math.random() * 50) + 1;
+let attempts = 7;
+
+function guessing() {
+    let guess = Number(document.getElementById("crct").value);
+    let Message = document.getElementById("message");
+    let attemptsremaining = document.getElementById("Remainingattempts");
+
+    if (guess === correctNumber) {
+        Message.textContent = "YOUR GUESS IS TRUE";
+        attemptsremaining.textContent = "";
+        document.getElementById("crct").disabled = true;
+    } else {
+        attempts--;
+        if (guess > correctNumber) {
+            Message.textContent = "Lower!";
+        } else {
+            Message.textContent = "Higher!";
+        }
+
+        if (attempts > 0) {
+            attemptsremaining.textContent = `Attempts remaining: ${attempts}`;
+        } else {
+            attemptsremaining.textContent = `Better luck next time! The guessed number was ${correctNumber}`;
+            document.getElementById("crct").disabled = true;
+        }
+    }
+
+    document.getElementById("crct").value = "";
+    document.getElementById("crct").focus();
+}
+
+            
+        </script>
+    </body>
+</html>
